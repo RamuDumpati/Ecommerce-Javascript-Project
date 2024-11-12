@@ -1,0 +1,210 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up and log in form in javascript</title> 
+</head>
+<style>
+       
+body{
+   
+    background-image: url('https://img.freepik.com/premium-photo/smartphone-with-shopping-cart-clothing-pink-background-concept-online-shopping-mobile-e-commerce_963414-17917.jpg?size=626&ext=jpg&ga=GA1.1.1104177898.1701144680&semt=ais_hybrid');
+    height: 70vh;
+    background-size: cover;
+}   
+.name{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+h1{
+    text-align: center;
+}
+.forms {
+    /* max-width: 900px; */
+    height: 300px;
+    width: 600px;
+    margin: auto;
+    background-color: transparent;
+ 
+    color: #210303;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 100px;
+    font-size: 10px;
+}
+
+.signup-heading{
+    text-align: center;
+    font-size: 40px;
+    color: rgb(234, 211, 6);
+    text-transform: uppercase;
+    margin-left: 60px;
+}
+
+.form-group {
+    margin-left: 100px;
+    margin-top: 20px;
+    height: 90px;
+
+    
+}
+input {
+    width: 400px;
+    height: 50px;
+    padding:10px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    color: rgb(6, 44, 211);
+   
+}
+
+.logo{
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+label{
+    display: block;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: rgb(186, 186, 58);
+    border: none;
+    color: #000;
+    padding: 16px 23px;
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-group {
+    text-align: center;
+    margin-top: 20px;
+    margin-left:10px;
+    
+}
+button:hover{
+   background-color: white;
+}
+
+@media only screen and (min-width: 1200px) {
+    .forms {
+        width: 600px;  
+    }
+
+    input {
+        width: 400px; 
+    }
+
+    .signup-heading {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+    .forms {
+        width: 500px;
+        margin-top: 70px;
+    }
+
+    .signup-heading {
+        font-size: 35px;
+    }
+
+    input {
+        width: 350px;
+        font-size: 18px;
+    }
+
+    .form-group {
+        margin-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .forms {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    .signup-heading {
+        font-size: 30px;
+        margin-left: 0px;
+    }
+
+    .form-group {
+        margin-left: 0px;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 50%;
+    }
+}
+
+</style>
+<body>
+    <div class="forms">
+
+        <h2 class="signup-heading">login form</h2>
+
+        <form>
+            <div class="form-group">
+                <label class="name">email </label>
+                <input type="text" name="email" id="useremail" placeholder="enter your email">
+            </div>
+
+            <div class="form-group">
+                <label class="name">password </label>
+                <input type="password" name="name" id="userpass" placeholder="enter password">
+            </div>
+        </form>
+
+        <div class="btn-group">
+            <button id="login">Login</button>
+            <a href="registration.html"><button id="signup">Signup</button></a> 
+
+        </div>
+    </div>
+    <script>
+
+    document.querySelector("#login").addEventListener("click", function () {
+
+   let username = document.querySelector('#useremail').value;
+   let userPassword = document.querySelector('#userpass').value;
+
+    if (username && userPassword) {
+   let usersArray = JSON.parse(localStorage.getItem("usersArray")) || [];
+   let userFound = usersArray.some(user => user.email === username && user.password === userPassword);
+
+   if (userFound) {
+      window.location.href = "index.html";
+   } else {
+      alert("Username/password is incorrect");
+   }
+} else {
+   alert("Please enter all the details.");
+}
+});
+    </script>
+</body>
+
+</html>
